@@ -5,8 +5,8 @@ import {Job} from "../configuration/abstractions/job";
 import {ArgValidator} from "./abstractions/arg-validator";
 import {ShredderConfig} from "../configuration/abstractions/shredder-config";
 
-function requiredJobFieldDescriptionArgumentMessageFn(rule: ArgValidator<FieldAnalysis>) {
-  return `Validation check failed for ${rule.name} parameter. Required`;
+function requiredJobFieldDescriptionArgumentMessageFn(rule: ArgValidator<FieldAnalysis>, value?: any) {
+  return `Validation check failed for ${rule.name} with context ${value || "[NO CONTEXT]"}. Required`;
 }
 
 const defaultJobFieldRule = {

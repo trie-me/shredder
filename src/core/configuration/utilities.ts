@@ -2,7 +2,12 @@ import {getValidatedJobsFromConfig} from "../validation/scraper-input-validator"
 import {ShredderConfig} from "./abstractions/shredder-config";
 
 export function getConfigurationFromEnv(arg: string) {
-  return JSON.parse(arg) as ShredderConfig;
+  try {
+    const v = JSON.parse(arg) as ShredderConfig;
+    return v;
+  } catch (ex) {
+    throw ex;
+  }
 }
 
 export function getValidatedJobs(arg: string) {
