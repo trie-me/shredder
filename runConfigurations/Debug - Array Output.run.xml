@@ -1,0 +1,5 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Debug - Array Output" type="NodeJSConfigurationType" application-parameters="./test-data/array-emit.json" path-to-node="$USER_HOME$/.nvm/versions/node/v17.9.1/bin/node" node-parameters=" --experimental-specifier-resolution=node --loader ts-node/esm --trace-warnings" path-to-js-file="src/index.ts" working-dir="$PROJECT_DIR$">
+    <method v="2" />
+  </configuration>
+</component>

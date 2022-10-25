@@ -23,11 +23,11 @@ export function wrapOperationWithHandlerOnExecute(page: Page, operation: FieldAn
   );
 }
 
-function foldTransformResults(opTransforms: string[], transforms: Map<string, FieldValueTransform>, correctedNullValue: string | undefined) {
+function foldTransformResults(opTransforms: string[], transformIndex: Map<string, FieldValueTransform>, correctedNullValue: string | undefined) {
   return opTransforms.reduce((iValue, transformKey) => {
-    if (!transforms.has(transformKey))
+    if (!transformIndex.has(transformKey))
       throw Error(`Configured transform ${transformKey} does not match any known transform operator.`);
-    const transformer = transforms?.get(transformKey) as FieldValueTransform;
+    const transformer = transformIndex?.get(transformKey) as FieldValueTransform;
     return transformer(iValue);
   }, correctedNullValue);
 }
@@ -36,12 +36,12 @@ function isNotNull<T>(arg?: T): arg is T {
   return !!arg;
 }
 
-function applyFieldTransforms(op: FieldAnalysis, transforms?: Map<string, FieldValueTransform>) {
+function applyFieldTransforms(op: FieldAnalysis, transformIndex?: Map<string, FieldValueTransform>) {
   return (value: string | null) => {
-    if (isNotNull(transforms) && isNotNull(op.transforms)) {
+    if (isNotNull(transformIndex) && isNotNull(op.transforms)) {
       return foldTransformResults(
         op.transforms,
-        transforms,
+        transformIndex,
         value ?? undefined);
     }
     return value;

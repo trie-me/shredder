@@ -1,0 +1,30 @@
+{
+  "writeToConsole": true,
+  "writeToFile": false,
+  "outfile": "./dist/array-result.jsonl",
+  "headless": true,
+  "jobs": [
+    {
+      "data": {"job-id": "ford-mach-e-gt-paints"},
+      "uri": "https://www.ford.co.uk/shop/buy-online/build-your-own#/colour?catalogId=WAEGB-CGW-2023-Mach-EGBR202300&series=ACMRJ_VS-LE&trim=11LP8included&powertrain=DGAFG_DR--D_EN-EH_TR-WA&paint=PNZAT",
+      "tasks": [
+        {
+            "data": {
+                "waffles": 1,
+                "testing": 5534831749312
+            },
+          "listMode": true,
+          "name": "paint-color-scan", "analyses": [
+            {"fieldName": "color", "data": { "group": "black", "turtles": "are awesome"}, "selector": "p.option-selection-items__OptionItemSimpleTitle-sc-1us76sp-4.bUeXsp", "valueAtIndex": 0},
+            {"fieldName": "price", "data": { "group": "black"},"isNumeric": true, "selector": "span.Attributes__AttributePrefixSuffix-m3qu0l-1.Attributes__AttributeValue-m3qu0l-4.gNyXcO", "valueAtIndex": 0, "transforms": ["currency"]},
+            {"fieldName": "color", "data": { "group": "grey"}, "selector": "p.option-selection-items__OptionItemSimpleTitle-sc-1us76sp-4.bUeXsp", "valueAtIndex": 1},
+            {"fieldName": "price", "data": { "group": "grey"}, "isNumeric": true, "selector": "span.Attributes__AttributePrefixSuffix-m3qu0l-1.Attributes__AttributeValue-m3qu0l-4.gNyXcO", "valueAtIndex": 1, "transforms": ["currency"]},
+            {"fieldName": "color", "data": { "group": "white"}, "selector": "p.option-selection-items__OptionItemSimpleTitle-sc-1us76sp-4.bUeXsp", "valueAtIndex": 2},
+            {"fieldName": "price", "data": { "group": "white"}, "isNumeric": true, "selector": "span.Attributes__AttributePrefixSuffix-m3qu0l-1.Attributes__AttributeValue-m3qu0l-4.gNyXcO", "valueAtIndex": 2, "transforms": ["currency"]},
+            {"fieldName": "color", "data": { "group": "light blue"}, "selector": "p.option-selection-items__OptionItemSimpleTitle-sc-1us76sp-4.bUeXsp", "valueAtIndex": 3},
+            {"fieldName": "price", "data": { "group": "light blue"}, "isNumeric": true, "selector": "span.Attributes__AttributePrefixSuffix-m3qu0l-1.Attributes__AttributeValue-m3qu0l-4.gNyXcO", "valueAtIndex": 3, "transforms": ["currency"]}
+          ]
+        }]
+    }
+  ]
+}

@@ -4,5 +4,6 @@ export interface FieldAnalysis {
   valueAtIndex?: number;
   isNumeric?: boolean;
   outputName?: string;
-  transforms?: string[]
+  transforms?: string[],
+  data?: {[p: string]: any}
 }

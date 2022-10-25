@@ -1,6 +1,6 @@
 import {PuppeteerLaunchOptions} from "puppeteer";
 
-export const DEFAULT_SELECTOR_TIMEOUT = 2000;
+export const DEFAULT_SELECTOR_TIMEOUT = 5000;
 export const DEFAULT_BROWSER_OPTIONS: PuppeteerLaunchOptions = {
   headless: true,
   product: 'chrome',

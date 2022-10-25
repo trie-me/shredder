@@ -5,7 +5,7 @@ import {Browser} from "puppeteer";
 import {getJobContext} from "../core/browser/utilities";
 import {executeJob} from "../core/processors/job-processor";
 import {OutputSink} from "../core/sinks/abstractions/output-sink";
-import {PseudoDynamicDictionary} from "../core/processors/abstractions/pseudo-dynamic-dictionary";
+import {PseudoDynamicArray, PseudoDynamicDictionary} from "../core/processors/abstractions/pseudo-dynamic-dictionary";
 import {RunnerBase} from "./abstractions/runner-base";
 
 function runScraperJob(job: Job, browser: Browser, context: RunnerContext) {
@@ -48,7 +48,7 @@ export class DefaultRunner extends RunnerBase {
     return executionStream;
   }
 
-  private applySinks(result: PseudoDynamicDictionary) {
+  private applySinks(result: PseudoDynamicDictionary | PseudoDynamicArray) {
     return from(this.context.sinks).pipe(
       mergeMap((sink: OutputSink) => sink.writeAsync(result))
     );

@@ -14,8 +14,9 @@ export function executeJob(job: Job, page: Page, context: RunnerContext) {
   const result = from(job.tasks).pipe(
     mergeMap(task => executeTask(page, task, context).pipe(
       map(result => {
-        result.jobResource = job.uri;
-        return {...job.data, ...result};
+        const output: {[p: string]: any} = {...result};
+        output["jobResource"] = job.uri;
+        return {...job.data, ...output};
       })
     ))
   );
